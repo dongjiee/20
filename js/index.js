@@ -18,7 +18,7 @@ window.onload=function()
         }
         
     }
-    page[1].onlostpointercapture=function()
+    page[1].onclick=function()
     {
         if(index==2)
         {
