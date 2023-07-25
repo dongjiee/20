@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- <script src="js/index.js"></script> -->
+
+<body>
+
+    <div class="book">
+        <div>
+
+            <div class="page page-2">
+                <img src="/img/2.png" alt>
+            </div>
+            <div class="page page-1">
+                <img src="/img/1.png" alt>
+            </div>
+            
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    // let currentPage = 1;
+    // let $ = document.querySelector.bind(document);
+    // $('#next-page').addEventListener('click', goToNextPage);
+    // const flipAnimateTime = 1000;
+    // function goToNextPage ()
+    // {
+    //     // 触发CSS动画
+    //     $('.paper[data-right]').setAttribute('data-begin-animate', true);
+    //     setTimeout(() => {
+    //         // data-right变成data-left
+    //         let $rightPaper = $('.paper[data-right]'),
+    //             $leftPaper = $('.paper[data-left]');
+    //         $rightPaper.removeAttribute('data-right');
+    //         $rightPaper.setAttribute('data-left', true);
+    //         // data-left没有了
+    //         $leftPaper.removeAttribute('data-left');
+    //         $leftPaper.querySelector('.page-1').classList.remove('page-1');
+    //         $leftPaper.querySelector('.page-1-back').classList.remove('page-1-back');
+    //         // 重新设置类的关系
+    //         $leftPaper = $rightPaper;
+    //         $rightPaper = $leftPaper.nextElementSibling;
+    //         $leftPaper.querySelector('.page').classList.add('page-1-back');
+    //         $leftPaper.querySelector('.page + .page').classList.add('page-1');
+    //         // 如果还有下一页
+    //         if ($rightPaper) {
+    //             $rightPaper.setAttribute('data-right', true);
+    //             $rightPaper.querySelector('.page').classList.add('page-2');
+    //             $rightPaper.querySelector('.page + .page').classList.add('page-2-back');
+    //         }   
+    //         currentPage++;
+    //     }, flipAnimateTime);
+    // }
+    window.onload=function()
+    {
+        var page=document.getElementsByClassName('page')
+        var index=1
+
+        page[1].onclick=function()
+        {
+            if(index==2)
+            {
+                page[1].classList.remove('next')
+                page[1].classList.add('pre')
+            }
+            if(index==1)
+            {
+                page[1].classList.add('next')
+                index=2
+            }
+        }
+    }
+</script>
+
+<style>
+*
+{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+.book
+{
+    width: 300px;
+    margin: 300px auto;
+    list-style: none;
+}
+.page
+{
+    width: 300px;
+    position: absolute;
+}
+img
+{
+    width: 300px;
+}
+
+.next
+{
+    transform-origin: top center;
+    animation: flip-to-top 2s ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+.pre
+{
+    transform-origin: top center;
+    animation: flip-to-bottom 2s ease-in-out;
+    animation-fill-mode:forwards;
+}
+
+@keyframes flip-to-top
+{
+    from
+    {
+        transform: perspective(1000px) rotateX(0);
+    }
+    to
+    {
+        transform: perspective(1000px) rotateX(180deg);
+    }
+}
+
+@keyframes flip-to-bottom
+{
+    from
+    {
+        transform: perspective(1000px) rotateX(180deg);
+    }
+    to
+    {
+        transform: perspective(1000px) rotateX(0deg);
+    }
+}
+</style>
+
+</html>
