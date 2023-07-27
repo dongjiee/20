@@ -67,7 +67,8 @@ window.onload=function()
 
     function song()
     {
-        setTimeout(function(){audio.play()},1000);
+        setTimeout(function(){audio.load()},1000);
+        setTimeout(function(){audio.play()},1500);
         s=true
     }
 }
