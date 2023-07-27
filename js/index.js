@@ -1,34 +1,76 @@
 window.onload=function()
 {
-    var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
-    var img=document.getElementsByClassName('img') 
+    var box=document.getElementById('box')
+    var audio=document.getElementById('audio')
 
-    var index=1
+    var cur=page.length
+    var click=false
+    var s=false
+    init()
+    
 
-    for(var i=0;i<img.length;i++)
+    function init()
     {
-        if(document.body.clientWidth>document.body.clientHeight)
+        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
-            img[i].style.width=document.body.clientHeight*0.45+'px'
+            box.style.width=document.body.clientHeight*0.45-50+'px'
         }
         else
         {
-            img[i].style.width=document.body.clientWidth*0.8+'px'
+            box.style.width=document.body.clientHeight*0.45+'px'
         }
-        
     }
-    page[1].onclick=function()
+
+    for(var i=0;i<page.length;i++)
+	{	
+		page[i].index=i;
+		page[i].onclick=function()
+		{	
+            num=this.index;
+
+            if(click==false)
+            {
+                click=true
+
+                if(cur>=num+1)
+                {
+                    page[num].classList.remove('pre')
+                    page[num].classList.add('next')
+                    cur=num
+
+                    setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
+                    // setTimeout(function(){console.log(page[num].style.zIndex)},1100);
+                    
+                    if(s==false)
+                    {
+                        song()
+                    }
+                }
+                else
+                {
+                    page[num].classList.remove('next')
+                    page[num].classList.add('pre')
+                    cur=num+1
+                    
+                    setTimeout(function(){page[num].style.zIndex=num+1},1000);
+                    // setTimeout(function(){console.log(page[num].style.zIndex)},1100);
+                }
+
+                clear()
+                
+            }
+		}
+	}
+
+    function clear()
     {
-        if(index==2)
-        {
-            page[1].classList.remove('next')
-            page[1].classList.add('pre')
-        }
-        if(index==1)
-        {
-            page[1].classList.add('next')
-            index=2
-        }
+        setTimeout(function(){click=false},2300);
+    }
+
+    function song()
+    {
+        s=true
+        setTimeout(function(){audio.play()},1000);
     }
 }
