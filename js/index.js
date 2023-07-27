@@ -25,13 +25,12 @@ window.onload=function()
     for(var i=0;i<page.length;i++)
 	{	
 		page[i].index=i;
+
 		page[i].onclick=function()
 		{	
-            num=this.index;
-
             if(click==false)
             {
-                click=true
+                num=this.index;
 
                 if(cur>=num+1)
                 {
@@ -40,7 +39,6 @@ window.onload=function()
                     cur=num
 
                     setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
-                    // setTimeout(function(){console.log(page[num].style.zIndex)},1100);
                     
                     if(s==false)
                     {
@@ -54,23 +52,22 @@ window.onload=function()
                     cur=num+1
                     
                     setTimeout(function(){page[num].style.zIndex=num+1},1000);
-                    // setTimeout(function(){console.log(page[num].style.zIndex)},1100);
                 }
 
                 clear()
-                
+                click=true
             }
 		}
 	}
 
     function clear()
     {
-        setTimeout(function(){click=false},2300);
+        setTimeout(function(){click=false},2000);
     }
 
     function song()
     {
-        s=true
         setTimeout(function(){audio.play()},1000);
+        s=true
     }
 }
