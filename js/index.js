@@ -2,13 +2,14 @@ window.onload=function()
 {
     var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
-    var audio=document.getElementById('audio')
+    // var audio=document.getElementById('audio')
+    var audio=new Audio('asset/birthday.mp3')
 
     var cur=page.length
     var click=false
     var s=false
+
     init()
-    
 
     function init()
     {
@@ -43,6 +44,7 @@ window.onload=function()
                     if(s==false)
                     {
                         song()
+                        s=true
                     }
                 }
                 else
@@ -65,10 +67,13 @@ window.onload=function()
         setTimeout(function(){click=false},2000);
     }
 
+    // function song()
+    // {
+    //     setTimeout(function(){audio.play()},1000);
+    // }
+
     function song()
     {
-        setTimeout(function(){audio.load()},1000);
-        setTimeout(function(){audio.play()},1500);
-        s=true
+        audio.play(); 
     }
 }
