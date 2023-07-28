@@ -67,16 +67,16 @@ window.onload=function()
         {
             case 'next':
                 page[index].classList.remove('pre')
-                page[index].classList.add('next')
                 back[index].classList.remove('pre')
+                page[index].classList.add('next')
                 back[index].classList.add('next')
                 setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000);
             break
             case 'pre':
-                page[index].classList.remove('next')
-                page[index].classList.add('pre')
                 back[index].classList.remove('next')
+                page[index].classList.remove('next')
                 back[index].classList.add('pre')
+                page[index].classList.add('pre')
                 setTimeout(function(){page[index].style.zIndex=index+1,back[index].style.zIndex=index},1000);
             break
         }
