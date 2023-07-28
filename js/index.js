@@ -66,22 +66,23 @@ window.onload=function()
         switch(state)
         {
             case 'next':
-                setTimeout(function(){page[index].style.visibility='hidden'},1300);
+                // setTimeout(function(){page[index].style.visibility='hidden'},1300)
                 page[index].classList.remove('pre')
                 back[index].classList.remove('pre')
                 page[index].classList.add('next')
                 back[index].classList.add('next')
-                // setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000);
+                // setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000)
+                // setTimeout(function(){back[index].style.zIndex=10-index},1000);
                 
             break
             case 'pre':
-                setTimeout(function(){page[index].style.visibility='visible'},1300);
+                // setTimeout(function(){page[index].style.visibility='visible'},1300)
                 back[index].classList.remove('next')
                 page[index].classList.remove('next')
                 back[index].classList.add('pre')
                 page[index].classList.add('pre')
                 
-                // setTimeout(function(){page[index].style.zIndex=index+1,back[index].style.zIndex=index},1000);
+                // setTimeout(function(){page[index].style.zIndex=index+1,back[index].style.zIndex=index},1000)
             break
         }
     }
