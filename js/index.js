@@ -1,10 +1,10 @@
 window.onload=function()
 {
-    var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
+    var page=document.getElementsByClassName('page')
+    var back=document.getElementsByClassName('back')
     var audio=new Audio('asset/birthday.mp3')
 
-    var cur=page.length
     var click=false
     var s=false
 
@@ -28,31 +28,14 @@ window.onload=function()
 
 		page[i].onclick=function()
 		{	
-            if(click==false)
+            if(!click)
             {
-                num=this.index;
-
-                if(cur>=num+1)
+                flip_page(this.index,'next')
+                
+                if(!s)
                 {
-                    page[num].classList.remove('pre')
-                    page[num].classList.add('next')
-                    cur=num
-
-                    setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
-                    
-                    if(s==false)
-                    {
-                        song()
-                        s=true
-                    }
-                }
-                else
-                {
-                    page[num].classList.remove('next')
-                    page[num].classList.add('pre')
-                    cur=num+1
-                    
-                    setTimeout(function(){page[num].style.zIndex=num+1},1000);
+                    song()
+                    s=true
                 }
 
                 clear()
@@ -60,6 +43,44 @@ window.onload=function()
             }
 		}
 	}
+
+    for(var i=0;i<back.length;i++)
+    {
+        back[i].index=i;
+
+		back[i].onclick=function()
+        {
+            if(!click)
+            {
+                flip_page(this.index,'pre')
+
+                clear()
+                click=true
+            }
+            
+        }
+    }
+
+    function flip_page(index,state)
+    {
+        switch(state)
+        {
+            case 'next':
+                page[index].classList.remove('pre')
+                page[index].classList.add('next')
+                back[index].classList.remove('pre')
+                back[index].classList.add('next')
+                setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000);
+            break
+            case 'pre':
+                page[index].classList.remove('next')
+                page[index].classList.add('pre')
+                back[index].classList.remove('next')
+                back[index].classList.add('pre')
+                setTimeout(function(){page[index].style.zIndex=index+1,back[index].style.zIndex=index},1000);
+            break
+        }
+    }
 
     function clear()
     {

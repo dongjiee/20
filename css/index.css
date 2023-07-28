@@ -42,6 +42,7 @@ body
     position: absolute;
     display: flex;
     justify-content: center;
+    /* box-shadow: 10px 6px 24px #888888; */
 }
 
 img
@@ -49,6 +50,10 @@ img
     width: 100%;
 }
 
+.back
+{
+    position: absolute;
+}
 .next
 {
     transform-origin: top center;
