@@ -3,7 +3,7 @@ window.onload=function()
     var box=document.getElementById('box')
     var page=document.getElementsByClassName('page')
     var back=document.getElementsByClassName('back')
-    var audio=new Audio('asset/birthday.m4a')
+    var audio=new Audio('asset/birthday.mp3')
 
     var click=false
     var s=false
