@@ -2,7 +2,6 @@ window.onload=function()
 {
     var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
-    // var audio=document.getElementById('audio')
     var audio=new Audio('asset/birthday.mp3')
 
     var cur=page.length
@@ -67,13 +66,8 @@ window.onload=function()
         setTimeout(function(){click=false},2000);
     }
 
-    // function song()
-    // {
-    //     setTimeout(function(){audio.play()},1000);
-    // }
-
     function song()
     {
-        audio.play(); 
+        setTimeout(function(){audio.play()},800);
     }
 }
