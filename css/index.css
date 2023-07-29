@@ -2,9 +2,9 @@
 {
     margin: 0;
     padding: 0;
-    -webkit-user-select:none;
+    /* -webkit-user-select:none;
     user-select: none;
-    -webkit-user-drag: none;
+    -webkit-user-drag: none; */
 }
 
 body
@@ -43,7 +43,7 @@ body
     position: absolute;
     display: flex;
     justify-content: center;
-    -webkit-backface-visibility: hidden;
+    /* -webkit-backface-visibility: hidden; */
 }
 
 img

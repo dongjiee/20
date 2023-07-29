@@ -30,16 +30,16 @@ window.onload=function()
 		{	
             if(!click)
             {
-                flip_page(this.index,'next')
-                
+                click=true
+                clear()
+
                 if(!s)
                 {
                     song()
                     s=true
                 }
-
-                clear()
-                click=true
+                
+                flip_page(this.index,'next')
             }
 		}
 	}
@@ -52,10 +52,10 @@ window.onload=function()
         {
             if(!click)
             {
-                flip_page(this.index,'pre')
-
-                clear()
                 click=true
+                clear()
+                
+                flip_page(this.index,'pre')
             }
             
         }
@@ -66,13 +66,13 @@ window.onload=function()
         switch(state)
         {
             case 'next':
-                // setTimeout(function(){page[index].style.visibility='hidden'},1300)
+                // setTimeout(function(){page[index].style.visibility='hidden'},1000)
                 page[index].classList.remove('pre')
                 back[index].classList.remove('pre')
                 page[index].classList.add('next')
                 back[index].classList.add('next')
                 // setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000)
-                // setTimeout(function(){back[index].style.zIndex=10-index},1000);
+                setTimeout(function(){page[index].style.zIndex=10-index,back[index].style.zIndex=10-index+1},1000);
                 
             break
             case 'pre':
@@ -82,7 +82,7 @@ window.onload=function()
                 back[index].classList.add('pre')
                 page[index].classList.add('pre')
                 
-                // setTimeout(function(){page[index].style.zIndex=index+1,back[index].style.zIndex=index},1000)
+                setTimeout(function(){page[index].style.zIndex=10+index+1,back[index].style.zIndex=10+index},1000)
             break
         }
     }
