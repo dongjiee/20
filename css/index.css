@@ -57,6 +57,7 @@ body
 {
     width: 100%;
     position: absolute;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -64,6 +65,7 @@ body
 {
     width: 100%;
     position: absolute;
+    -webkit-box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
     box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
 }
 
