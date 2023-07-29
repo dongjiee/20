@@ -40,8 +40,16 @@ window.onload=function()
                     song()
                     s=true
                 }
+                index=this.index
+
+                // flip_page(this.index,1)
+                page[index].classList.remove('pre')
+                back[index].classList.remove('pre')
+                page[index].classList.add('next')
+                back[index].classList.add('next')
+                setTimeout(function(){back[index].style.zIndex=10-index+1;page[index].style.zIndex=10-index},1000)
+                // setTimeout(back[index].style.zIndex=10-index+1,page[index].style.zIndex=10-index,1000)
                 
-                flip_page(this.index,'next')
             }
 		}
 	}
@@ -54,39 +62,20 @@ window.onload=function()
         {
             if(!click)
             {
-                console.log('1');
                 click=true
                 clear()
-                
-                flip_page(this.index,'pre')
-            }
-            
-        }
-    }
 
-    function flip_page(index,state)
-    {
-        switch(state)
-        {
-            case 'next':
-                // setTimeout(function(){page[index].style.visibility='hidden'},1000)
-                page[index].classList.remove('pre')
-                back[index].classList.remove('pre')
-                page[index].classList.add('next')
-                back[index].classList.add('next')
-                // setTimeout(function(){page[index].style.zIndex=-(index+2),back[index].style.zIndex=-(index+1)},1000)
-                setTimeout(function(){page[index].style.zIndex=10-index,back[index].style.zIndex=10-index+1},1000);
-                
-            break
-            case 'pre':
-                // setTimeout(function(){page[index].style.visibility='visible'},1300)
+                index=this.index
+
                 back[index].classList.remove('next')
                 page[index].classList.remove('next')
                 back[index].classList.add('pre')
                 page[index].classList.add('pre')
-                
-                setTimeout(function(){page[index].style.zIndex=10+index+1,back[index].style.zIndex=10+index},1000)
-            break
+
+                setTimeout(function(){back[index].style.zIndex=10+index;page[index].style.zIndex=10+index+1},1000)
+                // flip_page(this.index,2)
+            }
+            
         }
     }
 
