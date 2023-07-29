@@ -2,9 +2,9 @@ window.onload=function()
 {
     var box=document.getElementById('box')
     var img=document.getElementsByClassName('img')
-    var back=document.getElementsByClassName('back')
-    // var audio=new Audio('asset/birthday.mp3')
+    var audio=new Audio('asset/birthday.mp3')
 
+    var cur=img.length
     var click=false
     var s=false
 
@@ -35,60 +35,47 @@ window.onload=function()
                 click=true
                 clear()
 
-                // if(!s)
-                // {
-                //     song()
-                //     s=true
-                // }
-                index=this.index
+                if(!s)
+                {
+                    song()
+                    s=true
+                }
 
-                // flip_page(this.index,1)
-                img[index].classList.remove('pre')
-                back[index].classList.remove('pre')
-                img[index].classList.add('next')
-                back[index].classList.add('next')
-
-                // setTimeout(function(){back[index].style.zIndex=10-index+1;img[index].style.zIndex=10-index},1000)
-                setTimeout(function(){back[index].style.zIndex=-index},1000)
+                num=this.index
                 
+                if(cur>=num+1)
+                {
+                    img[num].classList.remove('pre')
+                    img[num].classList.add('next')
+                    cur=num
+
+                    setTimeout(function(){img[num].style.zIndex=-(num+1)},1000);
+                    
+                    if(s==false)
+                    {
+                        song()
+                        s=true
+                    }
+                }
+                else
+                {
+                    img[num].classList.remove('next')
+                    img[num].classList.add('pre')
+                    cur=num+1
+                    
+                    setTimeout(function(){img[num].style.zIndex=num+1},1000);
+                }
             }
 		}
 	}
-
-    for(var j=0;j<back.length;j++)
-    {
-        back[j].index=j;
-
-		back[j].onclick=function()
-        {
-            if(!click)
-            {
-                click=true
-                clear()
-
-                index=this.index
-
-                // flip_page(this.index,2)
-
-                back[index].classList.remove('next')
-                img[index].classList.remove('next')
-                back[index].classList.add('pre')
-                img[index].classList.add('pre')
-
-                // setTimeout(function(){back[index].style.zIndex=10+index;img[index].style.zIndex=10+index+1},1000)
-                // setTimeout(function(){back[index].style.zIndex=-(index+1)},1000)
-            }
-            
-        }
-    }
 
     function clear()
     {
         setTimeout(function(){click=false},2000);
     }
 
-    // function song()
-    // {
-    //     setTimeout(function(){audio.play()},800);
-    // }
+    function song()
+    {
+        setTimeout(function(){audio.play()},800);
+    }
 }
