@@ -1,7 +1,7 @@
 window.onload=function()
 {
     var box=document.getElementById('box')
-    var page=document.getElementsByClassName('page')
+    var img=document.getElementsByClassName('img')
     var back=document.getElementsByClassName('back')
     var audio=new Audio('asset/birthday.mp3')
 
@@ -24,11 +24,11 @@ window.onload=function()
         }
     }
 
-    for(var i=0;i<page.length;i++)
+    for(var i=0;i<img.length;i++)
 	{	
-		page[i].index=i;
+		img[i].index=i;
 
-		page[i].onclick=function()
+		img[i].onclick=function()
 		{	
             if(!click)
             {
@@ -43,12 +43,13 @@ window.onload=function()
                 index=this.index
 
                 // flip_page(this.index,1)
-                page[index].classList.remove('pre')
+                img[index].classList.remove('pre')
                 back[index].classList.remove('pre')
-                page[index].classList.add('next')
+                img[index].classList.add('next')
                 back[index].classList.add('next')
-                setTimeout(function(){back[index].style.zIndex=10-index+1;page[index].style.zIndex=10-index},1000)
-                // setTimeout(back[index].style.zIndex=10-index+1,page[index].style.zIndex=10-index,1000)
+
+                // setTimeout(function(){back[index].style.zIndex=10-index+1;img[index].style.zIndex=10-index},1000)
+                setTimeout(function(){back[index].style.zIndex=-index},1000)
                 
             }
 		}
@@ -67,13 +68,15 @@ window.onload=function()
 
                 index=this.index
 
-                back[index].classList.remove('next')
-                page[index].classList.remove('next')
-                back[index].classList.add('pre')
-                page[index].classList.add('pre')
-
-                setTimeout(function(){back[index].style.zIndex=10+index;page[index].style.zIndex=10+index+1},1000)
                 // flip_page(this.index,2)
+
+                back[index].classList.remove('next')
+                img[index].classList.remove('next')
+                back[index].classList.add('pre')
+                img[index].classList.add('pre')
+
+                // setTimeout(function(){back[index].style.zIndex=10+index;img[index].style.zIndex=10+index+1},1000)
+                // setTimeout(function(){back[index].style.zIndex=-(index+1)},1000)
             }
             
         }
