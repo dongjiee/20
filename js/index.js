@@ -32,14 +32,14 @@ window.onload=function()
 		{	
             if(!click)
             {
-                click=true
-                clear()
-
                 if(!s)
                 {
                     song()
                     s=true
                 }
+
+                click=true
+                clear()
 
                 num=this.index
                 
@@ -51,11 +51,6 @@ window.onload=function()
 
                     setTimeout(function(){img[num].style.zIndex=-(num+1)},1000);
                     
-                    if(s==false)
-                    {
-                        song()
-                        s=true
-                    }
                 }
                 else
                 {
