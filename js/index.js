@@ -15,10 +15,12 @@ window.onload=function()
         if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
             box.style.width=document.body.clientHeight*0.45-50+'px'
+            box.style.height=box.style.width
         }
         else
         {
             box.style.width=document.body.clientHeight*0.45+'px'
+            box.style.height=box.style.width
         }
     }
 
@@ -52,6 +54,7 @@ window.onload=function()
         {
             if(!click)
             {
+                console.log('1');
                 click=true
                 clear()
                 
