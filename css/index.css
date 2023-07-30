@@ -35,7 +35,7 @@ body
     align-items:top;
     justify-content: center;
     perspective: 2000px;
-    /* transform:translate3d(0,0,0); */
+    transform:translate3d(0,0,0);
 }
 
 .page
@@ -58,6 +58,7 @@ img
     transform-origin: top center;
     animation: flip-to-top 2s ease-in-out;
     animation-fill-mode:forwards;
+    transform: translate3d(0,0,0);
     
 }
 
@@ -66,6 +67,7 @@ img
     transform-origin: top center;
     animation: flip-to-bottom 2s ease-in-out;
     animation-fill-mode:forwards;
+    transform: translate3d(0,0,0);
 }
 
 @keyframes flip-to-top
