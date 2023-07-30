@@ -17,6 +17,8 @@ body
     display: flex;
     align-items: end;
     justify-content: center;
+    transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 #book
@@ -26,6 +28,7 @@ body
     list-style: none;
     display: flex;
     justify-content: center;
+    transform: translateZ(0);
 }
 
 #box
@@ -35,7 +38,7 @@ body
     align-items:top;
     justify-content: center;
     perspective: 2000px;
-    transform:translate3d(0,0,0);
+    transform: translateZ(0);
 }
 
 .page
@@ -44,13 +47,14 @@ body
     position: absolute;
     display: flex;
     justify-content: center;
+    transform: translateZ(0);
     /* box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2); */
 }
 
 img
 {
     width: 100%;
-    transform: translate3d(0,0,0);
+    transform: translateZ(0);
 }
 
 .next
@@ -58,7 +62,7 @@ img
     transform-origin: top center;
     animation: flip-to-top 2s ease-in-out;
     animation-fill-mode:forwards;
-    transform: translate3d(0,0,0);
+    transform: translateZ(0);
     
 }
 
@@ -67,18 +71,18 @@ img
     transform-origin: top center;
     animation: flip-to-bottom 2s ease-in-out;
     animation-fill-mode:forwards;
-    transform: translate3d(0,0,0);
+    transform: translateZ(0);
 }
 
 @keyframes flip-to-top
 {
     from
     {
-        transform: rotateX(0);
+        transform: rotateX(0) translateZ(0);
     }
     to
     {
-        transform: rotateX(180deg);
+        transform: rotateX(180deg) translateZ(0);
     }
 }
 
@@ -86,10 +90,10 @@ img
 {
     from
     {
-        transform: rotateX(180deg);
+        transform: rotateX(180deg) translateZ(0);
     }
     to
     {
-        transform: rotateX(0deg);
+        transform: rotateX(0deg) translateZ(0);
     }
 }
