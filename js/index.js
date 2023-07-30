@@ -34,8 +34,8 @@ window.onload=function()
 
                 if(cur>=num+1)
                 {
-                    page[num].classList.remove('pre')
-                    page[num].classList.add('next')
+                    page[num].classList.remove('pre'+num)
+                    page[num].classList.add('next'+num)
                     cur=num
 
                     page[num].style.zIndex=10-num
@@ -49,8 +49,8 @@ window.onload=function()
                 }
                 else
                 {
-                    page[num].classList.remove('next')
-                    page[num].classList.add('pre')
+                    page[num].classList.remove('next'+num)
+                    page[num].classList.add('pre'+num)
                     cur=num+1
                     setTimeout(function(){page[num].style.zIndex=num+1},1000);
                 }
