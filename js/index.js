@@ -1,10 +1,10 @@
 window.onload=function()
 {
-    var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
-    var audio=new Audio('asset/birthday.mp3')
+    var img=document.getElementsByClassName('img')
+    // var audio=new Audio('asset/birthday.mp3')
 
-    var cur=page.length
+    var cur=img.length
     var click=false
     var s=false
 
@@ -15,48 +15,51 @@ window.onload=function()
         if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
             box.style.width=document.body.clientHeight*0.45-50+'px'
+            box.style.height=box.style.width
         }
         else
         {
             box.style.width=document.body.clientHeight*0.45+'px'
+            box.style.height=box.style.width
         }
     }
 
-    for(var i=0;i<page.length;i++)
+    for(var i=0;i<img.length;i++)
 	{	
-		page[i].index=i;
+		img[i].index=i;
 
-		page[i].onclick=function()
+		img[i].onclick=function()
 		{	
-            if(click==false)
+            if(!click)
             {
-                num=this.index;
+                // if(!s)
+                // {
+                //     song()
+                //     s=true
+                // }
 
+                click=true
+                clear()
+
+                num=this.index
+                
                 if(cur>=num+1)
                 {
-                    page[num].classList.remove('pre')
-                    page[num].classList.add('next')
+                    img[num].classList.remove('pre')
+                    img[num].classList.add('next')
                     cur=num
 
-                    setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
+                    setTimeout(function(){img[num].style.zIndex=-(num+1)},1000);
                     
-                    if(s==false)
-                    {
-                        song()
-                        s=true
-                    }
                 }
                 else
                 {
-                    page[num].classList.remove('next')
-                    page[num].classList.add('pre')
+                    img[num].classList.remove('next')
+                    img[num].classList.add('pre')
                     cur=num+1
                     
-                    setTimeout(function(){page[num].style.zIndex=num+1},1000);
+                    setTimeout(function(){img[num].style.zIndex=num+1},1000);
                 }
-
-                clear()
-                click=true
             }
 		}
 	}
@@ -66,8 +69,8 @@ window.onload=function()
         setTimeout(function(){click=false},2000);
     }
 
-    function song()
-    {
-        setTimeout(function(){audio.play()},800);
-    }
+    // function song()
+    // {
+    //     setTimeout(function(){audio.play()},800);
+    // }
 }
