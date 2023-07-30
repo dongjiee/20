@@ -5,10 +5,12 @@
     -webkit-user-select:none;
     user-select: none;
     -webkit-user-drag: none;
+    -webkit-touch-callout: none;
 }
 
 body
 {
+    background-color: #F8D7C6;
  	height: 100%;
     width: 100%;
     position: fixed;
@@ -30,24 +32,47 @@ body
 
 #box
 {
-    position: relative;
     display: flex;
     align-items:top;
     justify-content: center;
+    position:relative;
+    transform-style: flat;
 }
 
-.page
+/* .page
 {
     width: 100%;
     position: absolute;
+    width: 100%;
     display: flex;
     justify-content: center;
-}
+    backface-visibility: hidden;
+} */
 
-img
+/* .back
 {
     width: 100%;
+    position: absolute;
+} */
+
+.img
+{
+    width: 100%;
+    position: absolute;
+    backface-visibility: hidden;
 }
+
+.back
+{
+    width: 100%;
+    position: absolute;
+    box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+}
+
+/* .page img
+{
+    box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
+} */
 
 .next
 {
