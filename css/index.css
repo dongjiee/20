@@ -35,6 +35,7 @@ body
     align-items:top;
     justify-content: center;
     perspective: 2000px;
+    transform-style: preserve-3d
 }
 
 .page
@@ -81,7 +82,7 @@ img
 {
     from
     {
-        transform: rotateX(0);
+        transform: rotateX(10deg);
     }
     to
     {
@@ -109,7 +110,7 @@ img
     }
     to
     {
-        transform: rotateX(0deg);
+        transform: rotateX(10deg);
     }
 }
 @keyframes flip-to-bottom2
