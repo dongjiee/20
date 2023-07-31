@@ -1,8 +1,8 @@
 window.onload=function()
 {
-    var box=document.getElementById('box')
-    var img=document.getElementsByClassName('img')
-    var song=new Audio('asset/birthday.mp3')
+    var box=document.getElementById("box")
+    var img=document.getElementsByClassName("img")
+    var song=new Audio("asset/birthday.m4a")
 
     var cur=img.length
     var isClick=false
