@@ -1,10 +1,10 @@
 window.onload=function()
 {
     var box=document.getElementById('box')
-    var img=document.getElementsByClassName('img')
+    var page=document.getElementsByClassName('page')
+    var back=document.getElementsByClassName('back')
     var song=new Audio('asset/birthday.mp3')
 
-    var cur=img.length
     var isClick=false
     var played=false
 
@@ -24,34 +24,20 @@ window.onload=function()
         }
     }
 
-    for(var i=0;i<img.length;i++)
+    for(var i=0;i<page.length;i++)
 	{	
-		img[i].index=i;
+		page[i].index=i;
 
-		img[i].onclick=function()
+		page[i].onclick=function()
 		{	
-            if(isClick==false)
+            if(!isClick)
             {
-                num=this.index;
-
-                if(cur>=num+1)
+                flip_page(this.index,'next')
+                
+                if(!played)
                 {
-                    if(played==false)
-                    {
-                        playSong()
-                        played=true
-                    }
-
-                    img[num].classList.remove(String('pre'+num))
-                    img[num].classList.add(String('next'+num))
-                    cur=num
-                    
-                }
-                else
-                {
-                    img[num].classList.remove(String('next'+num))
-                    img[num].classList.add(String('pre'+num))
-                    cur=num+1
+                    playSong()
+                    played=true
                 }
 
                 wait()
@@ -60,6 +46,42 @@ window.onload=function()
 		}
 	}
 
+    for(var j=0;j<back.length;j++)
+    {
+        back[j].index=j;
+
+		back[j].onclick=function()
+        {
+            if(!isClick)
+            {
+                flip_page(this.index,'pre')
+
+                wait()
+                isClick=true
+            }
+            
+        }
+    }
+
+    function flip_page(index,state)
+    {
+        switch(state)
+        {
+            case 'next':
+                page[index].classList.remove(String('pre'+index))
+                back[index].classList.remove(String('pre'+index))
+                page[index].classList.add(String('next'+index))
+                back[index].classList.add(String('next'+index))
+                break
+            case 'pre':
+                back[index].classList.remove(String('next'+index))
+                page[index].classList.remove(String('next'+index))
+                back[index].classList.add(String('pre'+index))
+                page[index].classList.add(String('pre'+index))
+                break
+        }
+    }
+
     function wait()
     {
         setTimeout(function(){isClick=false},2000);
@@ -67,6 +89,6 @@ window.onload=function()
 
     function playSong()
     {
-        setTimeout(function(){song.play()},800);
+        setTimeout(function(){song.play()},2000);
     }
 }
