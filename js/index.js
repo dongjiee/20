@@ -75,14 +75,14 @@ window.onload=function()
         {
             case 'next':
                 page[index].classList.remove(String('pre'+index))
-                back[index].classList.remove(String('pre'+index))
+                back[index].classList.remove(String('pre'+(index-1)))
                 page[index].classList.add(String('next'+index))
-                back[index].classList.add(String('next'+index))
+                back[index].classList.add(String('next'+(index-1)))
                 break
             case 'pre':
-                back[index].classList.remove(String('next'+index))
+                back[index].classList.remove(String('next'+(index-1)))
                 page[index].classList.remove(String('next'+index))
-                back[index].classList.add(String('pre'+index))
+                back[index].classList.add(String('pre'+(index-1)))
                 page[index].classList.add(String('pre'+index))
                 break
         }
