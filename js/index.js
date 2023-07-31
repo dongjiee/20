@@ -36,20 +36,21 @@ window.onload=function()
 
                 if(cur>=num+1)
                 {
-                    img[num].classList.remove('pre'+num)
-                    img[num].classList.add('next'+num)
-                    cur=num
-                    
                     if(played==false)
                     {
                         playSong()
                         played=true
                     }
+
+                    img[num].classList.remove(String('pre'+num))
+                    img[num].classList.add(String('next'+num))
+                    cur=num
+                    
                 }
                 else
                 {
-                    img[num].classList.remove('next'+num)
-                    img[num].classList.add('pre'+num)
+                    img[num].classList.remove(String('next'+num))
+                    img[num].classList.add(String('pre'+num))
                     cur=num+1
                 }
 
@@ -66,6 +67,6 @@ window.onload=function()
 
     function playSong()
     {
-        setTimeout(function(){song.play()},1000);
+        setTimeout(function(){song.play()},800);
     }
 }
