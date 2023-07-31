@@ -99,6 +99,6 @@ window.onload=function()
     }
     function pauseSong()
     {
-        setTimeout(function(){song.pause(),song.currentTime=0},1500);
+        setTimeout(function(){song.pause();song.currentTime=0},1500);
     }
 }
