@@ -42,10 +42,10 @@ img
     transform-origin: top;
 }
 
-/* .page
+.page
 {
     backface-visibility: hidden;
-} */
+}
 
 /* .p1
 {
@@ -95,7 +95,7 @@ img
 {
     from
     {
-        transform: rotateX(3deg);
+        transform: rotateX(2deg);
     }
     to
     {
@@ -106,7 +106,7 @@ img
 {
     from
     {
-        transform: rotateX(2deg);
+        transform: rotateX(1deg);
     }
     to
     {
@@ -133,25 +133,25 @@ img
     }
     to
     {
-        transform: rotateX(0);
+        transform: rotateX(2deg);
     }
 }
 @keyframes flip-to-bottom2
 {
     from
     {
-        transform: rotateX(180deg);
+        transform: rotateX(179deg);
     }
     to
     {
-        transform: rotateX(0);
+        transform: rotateX(1deg);
     }
 }
 @keyframes flip-to-bottom3
 {
     from
     {
-        transform: rotateX(180deg);
+        transform: rotateX(178deg);
     }
     to
     {
