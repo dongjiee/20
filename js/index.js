@@ -32,14 +32,14 @@ window.onload=function()
 		{	
             if(!isClick)
             {
-                flip_page(this.index,'next')
-                
                 if(!played)
                 {
                     playSong()
                     played=true
                 }
 
+                flip_page(this.index,'next')
+                
                 wait()
                 isClick=true
             }
@@ -54,6 +54,12 @@ window.onload=function()
         {
             if(!isClick)
             {
+                if(played)
+                {
+                    pauseSong()
+                    played=false
+                }
+
                 flip_page(this.index,'pre')
 
                 wait()
@@ -90,5 +96,9 @@ window.onload=function()
     function playSong()
     {
         setTimeout(function(){song.play()},2000);
+    }
+    function pauseSong()
+    {
+        setTimeout(function(){song.pause(),song.currentTime=0},1500);
     }
 }
