@@ -30,9 +30,9 @@ window.onload=function()
 
 		page[i].onclick=function()
 		{	
-            if(!isClick)
+            if(isClick==false)
             {
-                if(!played)
+                if(played==false)
                 {
                     playSong()
                     played=true
@@ -52,9 +52,9 @@ window.onload=function()
 
 		back[j].onclick=function()
         {
-            if(!isClick)
+            if(isClick==false)
             {
-                if(played)
+                if(played==true)
                 {
                     pauseSong()
                     played=false
