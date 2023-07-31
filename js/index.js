@@ -1,10 +1,10 @@
 window.onload=function()
 {
-    var page=document.getElementsByClassName('page')
+    var img=document.getElementsByClassName('img')
     var box=document.getElementById('box')
     var audio=new Audio('asset/birthday.mp3')
 
-    var cur=page.length
+    var cur=img.length
     var click=false
     var s=false
 
@@ -15,18 +15,20 @@ window.onload=function()
         if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
             box.style.width=document.body.clientHeight*0.45-50+'px'
+            box.style.height=document.body.clientHeight*0.45-50+'px'
         }
         else
         {
             box.style.width=document.body.clientHeight*0.45+'px'
+            box.style.height=document.body.clientHeight*0.45+'px'
         }
     }
 
-    for(var i=0;i<page.length;i++)
+    for(var i=0;i<img.length;i++)
 	{	
-		page[i].index=i;
+		img[i].index=i;
 
-		page[i].onclick=function()
+		img[i].onclick=function()
 		{	
             if(click==false)
             {
@@ -34,8 +36,8 @@ window.onload=function()
 
                 if(cur>=num+1)
                 {
-                    page[num].classList.remove('pre'+num)
-                    page[num].classList.add('next'+num)
+                    img[num].classList.remove('pre'+num)
+                    img[num].classList.add('next'+num)
                     cur=num
 
                     // page[num].style.zIndex=10-num
@@ -49,8 +51,8 @@ window.onload=function()
                 }
                 else
                 {
-                    page[num].classList.remove('next'+num)
-                    page[num].classList.add('pre'+num)
+                    img[num].classList.remove('next'+num)
+                    img[num].classList.add('pre'+num)
                     cur=num+1
                     // setTimeout(function(){page[num].style.zIndex=num+1},1000);
                 }
@@ -68,6 +70,6 @@ window.onload=function()
 
     function song()
     {
-        setTimeout(function(){audio.play()},800);
+        setTimeout(function(){audio.play()},1000);
     }
 }
