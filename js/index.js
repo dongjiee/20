@@ -1,7 +1,7 @@
 window.onload=function()
 {
-    var img=document.getElementsByClassName('img')
     var box=document.getElementById('box')
+    var img=document.getElementsByClassName('img')
     var audio=new Audio('asset/birthday.mp3')
 
     var cur=img.length
@@ -70,6 +70,6 @@ window.onload=function()
 
     function song()
     {
-        setTimeout(function(){audio.play()},1000);
+        setTimeout(function(){audio.play()},800);
     }
 }
