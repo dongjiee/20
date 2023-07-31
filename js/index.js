@@ -2,11 +2,11 @@ window.onload=function()
 {
     var box=document.getElementById('box')
     var img=document.getElementsByClassName('img')
-    var audio=new Audio('asset/birthday.mp3')
+    var song=new Audio('asset/birthday.mp3')
 
     var cur=img.length
-    var click=false
-    var s=false
+    var isClick=false
+    var played=false
 
     init()
 
@@ -30,7 +30,7 @@ window.onload=function()
 
 		img[i].onclick=function()
 		{	
-            if(click==false)
+            if(isClick==false)
             {
                 num=this.index;
 
@@ -43,10 +43,10 @@ window.onload=function()
                     // page[num].style.zIndex=10-num
                     // setTimeout(function(){page[num].style.zIndex=10-num},1000);
                     
-                    if(s==false)
+                    if(played==false)
                     {
-                        song()
-                        s=true
+                        playSong()
+                        played=true
                     }
                 }
                 else
@@ -57,19 +57,19 @@ window.onload=function()
                     // setTimeout(function(){page[num].style.zIndex=num+1},1000);
                 }
 
-                clear()
-                click=true
+                await()
+                isClick=true
             }
 		}
 	}
 
-    function clear()
+    function await()
     {
-        setTimeout(function(){click=false},2000);
+        setTimeout(function(){isClick=false},2000);
     }
 
-    function song()
+    function playSong()
     {
-        setTimeout(function(){audio.play()},800);
+        setTimeout(function(){song.play()},1000);
     }
 }
