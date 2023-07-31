@@ -36,8 +36,8 @@ window.onload=function()
 
                 if(cur>=num+1)
                 {
-                    img[num].classList.remove('pre'+num)
-                    img[num].classList.add('next'+num)
+                    img[num].classList.remove('pre'+String(num))
+                    img[num].classList.add('next'+String(num))
                     cur=num
 
                     // page[num].style.zIndex=10-num
@@ -51,8 +51,8 @@ window.onload=function()
                 }
                 else
                 {
-                    img[num].classList.remove('next'+num)
-                    img[num].classList.add('pre'+num)
+                    img[num].classList.remove('next'+String(num))
+                    img[num].classList.add('pre'+String(num))
                     cur=num+1
                     // setTimeout(function(){page[num].style.zIndex=num+1},1000);
                 }
