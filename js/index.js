@@ -2,7 +2,7 @@ window.onload=function()
 {
     var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
-    var audio=new Audio('asset/birthday.mp3')
+    var audio=new Audio('asset/birthday.m4a')
 
     var cur=page.length
     var click=false
@@ -68,6 +68,6 @@ window.onload=function()
 
     function song()
     {
-        setTimeout(function(){audio.play()},800);
+        setTimeout(function(){audio.load();audio.play()},2000);
     }
 }
