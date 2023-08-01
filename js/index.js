@@ -12,15 +12,15 @@ window.onload=function()
 
     function init()
     {
-        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
+        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
-            box.style.width=document.body.clientHeight*0.45-50+'px'
-            box.style.height=document.body.clientHeight*0.45-50+'px'
+            box.style.width=document.documentElement.scrollHeight*0.45-50+'px'
+            box.style.height=document.documentElement.scrollHeight*0.45-50+'px'
         }
         else
         {
-            box.style.width=document.body.clientHeight*0.45+'px'
-            box.style.height=document.body.clientHeight*0.45+'px'
+            box.style.width=document.documentElement.scrollHeight*0.45+'px'
+            box.style.height=document.documentElement.scrollHeight*0.45+'px'
         }
     }
 
