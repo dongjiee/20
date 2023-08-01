@@ -2,6 +2,8 @@
 {
     margin: 0;
     padding: 0;
+    -webkit-user-select:none;
+    user-select: none;
     -webkit-user-drag: none;
 }
 
@@ -13,121 +15,74 @@ body
     top: 0;
     left: 0;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
-    background-color: #F8D7C6;
 }
 
 #book
 {
+    width: 100%;
+    height: 50%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+#box
+{
     position: relative;
     display: flex;
-    align-items: end;
-    perspective: 2000px;
-    transform-style: preserve-3d;
+    align-items:top;
+    justify-content: center;
+}
+
+.page
+{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
 }
 
 img
 {
-    position: absolute;
     width: 100%;
-    transform-origin: top;
-    box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
 }
 
-.next2
+.next
 {
-    animation: flip-to-top2 2s ease-in-out;
-    animation-fill-mode:forwards;
-}
-.next1
-{
-    animation: flip-to-top1 2s ease-in-out;
-    animation-fill-mode:forwards;
-}
-.next0
-{
+    transform-origin: top center;
     animation: flip-to-top 2s ease-in-out;
     animation-fill-mode:forwards;
 }
 
-.pre2
+.pre
 {
-    animation: flip-to-bottom2 2s ease-in-out;
-}
-.pre1
-{
-    animation: flip-to-bottom1 2s ease-in-out;
-}
-.pre0
-{
+    transform-origin: top center;
     animation: flip-to-bottom 2s ease-in-out;
+    animation-fill-mode:forwards;
 }
 
-@keyframes flip-to-top2
-{
-    from
-    {
-        transform: rotateX(0);
-    }
-    to
-    {
-        transform: rotateX(180deg);
-    }
-}
-@keyframes flip-to-top1
-{
-    from
-    {
-        transform: rotateX(0);
-    }
-    to
-    {
-        transform: rotateX(179deg);
-    }
-}
 @keyframes flip-to-top
 {
     from
     {
-        transform: rotateX(0);
+        transform: perspective(2000px) rotateX(0);
     }
     to
     {
-        transform: rotateX(178deg);
+        transform: perspective(2000px) rotateX(180deg);
     }
 }
 
-@keyframes flip-to-bottom2
-{
-    from
-    {
-        transform: rotateX(180deg);
-    }
-    to
-    {
-        transform: rotateX(0);
-    }
-}
-@keyframes flip-to-bottom1
-{
-    from
-    {
-        transform: rotateX(179deg);
-    }
-    to
-    {
-        transform: rotateX(0);
-    }
-}
 @keyframes flip-to-bottom
 {
     from
     {
-        transform: rotateX(178deg);
+        transform: perspective(2000px) rotateX(180deg);
     }
     to
     {
-        transform: rotateX(0);
+        transform: perspective(2000px) rotateX(0deg);
     }
 }

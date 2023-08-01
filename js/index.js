@@ -1,26 +1,24 @@
 window.onload=function()
 {
-    var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
-    var song=document.getElementById('song')
+    var box=document.getElementById('box')
+    var audio=new Audio('asset/birthday.mp3')
 
     var cur=page.length
-    var isClick=false
-    var played=false
+    var click=false
+    var s=false
 
     init()
 
     function init()
     {
-        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
+        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
-            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
+            box.style.width=document.body.clientHeight*0.45-50+'px'
         }
         else
         {
-            book.style.width=document.documentElement.scrollHeight*0.45+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
+            box.style.width=document.body.clientHeight*0.45+'px'
         }
     }
 
@@ -30,53 +28,46 @@ window.onload=function()
 
 		page[i].onclick=function()
 		{	
-            if(isClick==false)
+            if(click==false)
             {
                 num=this.index;
 
-                if(num+1==page.length&&played==false)
-                {
-                    playSong()
-                }
-                if(num+1==page.length&&played==true)
-                {
-                    pauseSong()
-                }
-
                 if(cur>=num+1)
                 {
-                    page[num].classList.remove('pre'+num)
-                    setTimeout(function(){page[num].src='asset/b4.png'},1000)
-                    page[num].classList.add('next'+num)
-
+                    page[num].classList.remove('pre')
+                    page[num].classList.add('next')
                     cur=num
+
+                    setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
+                    
+                    if(s==false)
+                    {
+                        song()
+                        s=true
+                    }
                 }
                 else
                 {
-                    page[num].classList.remove('next'+num)
-                    setTimeout(function(){page[num].src='asset/'+(page.length-num)+'.png'},1000)
-                    page[num].classList.add('pre'+num)
-                    
+                    page[num].classList.remove('next')
+                    page[num].classList.add('pre')
                     cur=num+1
+                    
+                    setTimeout(function(){page[num].style.zIndex=num+1},1000);
                 }
 
-                wait()
-                isClick=true
+                clear()
+                click=true
             }
 		}
 	}
 
-    function wait()
+    function clear()
     {
-        setTimeout(function(){isClick=false},2000);
+        setTimeout(function(){click=false},2000);
     }
 
-    function playSong()
+    function song()
     {
-        setTimeout(function(){song.load();song.play();played=true},2000);
-    }
-    function pauseSong()
-    {
-        setTimeout(function(){song.pause();song.currentTime=0;played=false},1500);
+        setTimeout(function(){audio.play()},800);
     }
 }
