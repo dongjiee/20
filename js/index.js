@@ -2,7 +2,7 @@ window.onload=function()
 {
     var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
-    var audio=new Audio('asset/birthday.m4a')
+    var audio=new Audio('asset/birthday.mp3')
 
     var cur=page.length
     var click=false
