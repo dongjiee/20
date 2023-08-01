@@ -36,9 +36,6 @@ for(var i=0;i<page.length;i++)
             }
 
             flip_page(this.index,'next')
-            
-            wait()
-            isClick=true
         }
     }
 }
@@ -57,9 +54,6 @@ for(var j=0;j<back.length;j++)
             }
 
             flip_page(this.index,'pre')
-
-            wait()
-            isClick=true
         }
         
     }
@@ -74,17 +68,16 @@ function flip_page(index,state)
             back[index].classList.remove('pre'+(index-1))
             page[index].classList.add('next'+index)
             back[index].classList.add('next'+(index-1))
+            setTimeout(function(){isClick=false},2000);
+            isClick=true
             break
         case 'pre':
             back[index].classList.remove('next'+(index-1))
             page[index].classList.remove('next'+index)
             back[index].classList.add('pre'+(index-1))
             page[index].classList.add('pre'+index)
+            setTimeout(function(){isClick=false},2000);
+            isClick=true
             break
     }
-}
-
-function wait()
-{
-    setTimeout(function(){isClick=false},2000);
 }
