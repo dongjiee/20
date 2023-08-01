@@ -53,7 +53,7 @@ for(var j=0;j<back.length;j++)
         {
             if(this.index+1==page.length&&isPlay==true)
             {
-                setTimeout(function(){song.pause();song.currentTime=0;isPlay=true},1500);
+                setTimeout(function(){song.pause();song.currentTime=0;isPlay=false},1500);
             }
 
             flip_page(this.index,'pre')
