@@ -1,98 +1,98 @@
-window.onload=function()
+var book=document.getElementById('book')
+var page=document.getElementsByClassName('page')
+var back=document.getElementsByClassName('back')
+var song=document.getElementById('song')
+
+var isClick=false
+var isPlay=false
+
+function init()
 {
-    var book=document.getElementById('book')
-    var page=document.getElementsByClassName('page')
-    var back=document.getElementsByClassName('back')
-    var audio=new Audio('asset/birthday.mp3')
-
-    var isClick=false
-    var played=false
-
-    init()
-
-    function init()
+    if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
     {
-        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
-        {
-            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
-        }
-        else
-        {
-            book.style.width=document.documentElement.scrollHeight*0.45+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
-        }
+        book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
+        book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
     }
-
-    for(var i=0;i<page.length;i++)
-	{	
-		page[i].index=i;
-
-		page[i].onclick=function()
-		{	
-            if(isClick==false)
-            {
-                if(this.index+1==page.length&&played==false)
-                {
-                    playSong()
-                }
-
-                flip_page(this.index,'next')
-            }
-		}
-	}
-
-    for(var j=0;j<back.length;j++)
+    else
     {
-        back[j].index=j;
+        book.style.width=document.documentElement.scrollHeight*0.45+'px'
+        book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
+    }
+}
+init()
 
-		back[j].onclick=function()
+for(var i=0;i<page.length;i++)
+{	
+    page[i].index=i;
+
+    page[i].onclick=function()
+    {	
+        if(isClick==false)
         {
-            if(isClick==false)
+            if(this.index+1==page.length&&isPlay==false)
             {
-                if(this.index+1==page.length&&played==true)
-                {
-                    pauseSong()
-                }
-
-                flip_page(this.index,'pre')
+                playSong()
             }
+
+            flip_page(this.index,'next')
             
+            wait()
+            isClick=true
         }
     }
+}
 
-    function flip_page(index,state)
+for(var j=0;j<back.length;j++)
+{
+    back[j].index=j;
+
+    back[j].onclick=function()
     {
-        switch(state)
+        if(isClick==false)
         {
-            case 'next':
-                page[index].classList.remove('pre'+index)
-                back[index].classList.remove('pre'+(index-1))
-                page[index].classList.add('next'+index)
-                back[index].classList.add('next'+(index-1))
-                break
-            case 'pre':
-                back[index].classList.remove('next'+(index-1))
-                page[index].classList.remove('next'+index)
-                back[index].classList.add('pre'+(index-1))
-                page[index].classList.add('pre'+index)
-                break
+            if(this.index+1==page.length&&isPlay==true)
+            {
+                pauseSong()
+            }
+
+            flip_page(this.index,'pre')
+
+            wait()
+            isClick=true
         }
-        isClick=true
-        wait()
+        
     }
+}
 
-    function wait()
+function flip_page(index,state)
+{
+    switch(state)
     {
-        setTimeout(function(){isClick=false},2000);
+        case 'next':
+            page[index].classList.remove('pre'+index)
+            back[index].classList.remove('pre'+(index-1))
+            page[index].classList.add('next'+index)
+            back[index].classList.add('next'+(index-1))
+            break
+        case 'pre':
+            back[index].classList.remove('next'+(index-1))
+            page[index].classList.remove('next'+index)
+            back[index].classList.add('pre'+(index-1))
+            page[index].classList.add('pre'+index)
+            break
     }
+}
 
-    function playSong()
-    {
-        setTimeout(function(){audio.play();played=false},2000);
-    }
-    function pauseSong()
-    {
-        setTimeout(function(){audio.pause();audio.currentTime=0;played=true},1500);
-    }
+function wait()
+{
+    setTimeout(function(){isClick=false},2000);
+}
+
+function playSong()
+{
+    setTimeout(function(){song.load();song.play();isPlay=false},2000);
+}
+function pauseSong()
+{
+    setTimeout(function(){song.pause();song.currentTime=0;isPlay=true},1500);
 }
