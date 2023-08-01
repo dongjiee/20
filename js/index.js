@@ -7,7 +7,7 @@ window.onload=function()
     // var song=new Audio('asset/birthday.mp3')
 
     var isClick=false
-    var played=false
+    // var played=false
 
     init()
 
@@ -75,12 +75,14 @@ window.onload=function()
         switch(state)
         {
             case 'next':
-                page[index].classList.remove(String('pre'+index))
-                page[index].classList.add(String('next'+index))
+                page[index].classList.remove('pre')
+                page[index].classList.add('next')
+                setTimeout(function(){page[index].style.zIndex=10-index},1000)
                 break
             case 'pre':
-                page[index].classList.remove(String('next'+index))
-                page[index].classList.add(String('pre'+index))
+                page[index].classList.remove('next')
+                page[index].classList.add('pre')
+                setTimeout(function(){page[index].style.zIndex='auto'},1000)
                 break
         }
     }
