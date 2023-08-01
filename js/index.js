@@ -70,16 +70,15 @@ function flip_page(index,state)
             back[index].classList.remove('pre'+(index-1))
             page[index].classList.add('next'+index)
             back[index].classList.add('next'+(index-1))
-            setTimeout(function(){isClick=false},2000);
-            isClick=true
             break
         case 'pre':
             back[index].classList.remove('next'+(index-1))
             page[index].classList.remove('next'+index)
             back[index].classList.add('pre'+(index-1))
             page[index].classList.add('pre'+index)
-            setTimeout(function(){isClick=false},2000);
-            isClick=true
             break
     }
+    
+    setTimeout(function(){isClick=false},2000);
+    isClick=true
 }
