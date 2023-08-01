@@ -1,7 +1,6 @@
 window.onload=function()
 {
     var book=document.getElementById('book')
-    var box=document.getElementById('box')
     var page=document.getElementsByClassName('page')
     var front=document.getElementsByClassName('front')
     var back=document.getElementsByClassName('back')
@@ -14,15 +13,15 @@ window.onload=function()
 
     function init()
     {
-        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
+        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
-            book.style.width=document.body.clientHeight*0.45-50+'px'
-            book.style.height=(document.body.clientHeight*0.45-50)*2+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
         }
         else
         {
-            book.style.width=document.body.clientHeight*0.45+'px'
-            book.style.height=(document.body.clientHeight*0.45)*2+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
         }
     }
 
