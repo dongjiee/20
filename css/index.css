@@ -34,14 +34,8 @@ img
     transform-origin: top;
 }
 
-/* .p1
-{
-    transform: rotateX(2deg);
-} */
-
 .page
 {
-    /* backface-visibility: hidden; */
     box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
 }
 
