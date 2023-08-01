@@ -2,6 +2,7 @@ window.onload=function()
 {
     var box=document.getElementById('box')
     var page=document.getElementsByClassName('page')
+    var front=document.getElementsByClassName('front')
     var back=document.getElementsByClassName('back')
     var song=new Audio('asset/birthday.mp3')
 
@@ -24,15 +25,15 @@ window.onload=function()
         }
     }
 
-    for(var i=0;i<page.length;i++)
+    for(var i=0;i<front.length;i++)
 	{	
-		page[i].index=i;
+		front[i].index=i;
 
-		page[i].onclick=function()
+		front[i].onclick=function()
 		{	
             if(isClick==false)
             {
-                if(played==false)
+                if(this.index+1==front.length&&played==false)
                 {
                     playSong()
                     played=true
@@ -54,7 +55,7 @@ window.onload=function()
         {
             if(isClick==false)
             {
-                if(played==true)
+                if(this.index+1==front.length&&played==true)
                 {
                     pauseSong()
                     played=false
@@ -75,14 +76,10 @@ window.onload=function()
         {
             case 'next':
                 page[index].classList.remove(String('pre'+index))
-                back[index].classList.remove(String('pre'+(index-1)))
                 page[index].classList.add(String('next'+index))
-                back[index].classList.add(String('next'+(index-1)))
                 break
             case 'pre':
-                back[index].classList.remove(String('next'+(index-1)))
                 page[index].classList.remove(String('next'+index))
-                back[index].classList.add(String('pre'+(index-1)))
                 page[index].classList.add(String('pre'+index))
                 break
         }
