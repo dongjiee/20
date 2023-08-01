@@ -106,7 +106,7 @@ img
     }
     to
     {
-        transform: rotateX(2deg);
+        transform: rotateX(0);
     }
 }
 @keyframes flip-to-bottom1
@@ -117,7 +117,7 @@ img
     }
     to
     {
-        transform: rotateX(1deg);
+        transform: rotateX(0);
     }
 }
 @keyframes flip-to-bottom

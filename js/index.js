@@ -43,19 +43,19 @@ window.onload=function()
                 if(cur>=num+1)
                 {
                     page[num].classList.remove('pre'+num)
-                    page[num].classList.add('next'+num)
-                    cur=num
-
                     setTimeout(function(){page[num].src='asset/b4.png'},1000)
+                    page[num].classList.add('next'+num)
+
+                    cur=num
                     
                 }
                 else
                 {
                     page[num].classList.remove('next'+num)
-                    page[num].classList.add('pre'+num)
-                    cur=num+1
-                    
                     setTimeout(function(){page[num].src='asset/'+(page.length-num)+'.png'},1000)
+                    page[num].classList.add('pre'+num)
+                    
+                    cur=num+1
                 }
 
                 wait()
