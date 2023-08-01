@@ -4,7 +4,7 @@ window.onload=function()
     var page=document.getElementsByClassName('page')
     var front=document.getElementsByClassName('front')
     var back=document.getElementsByClassName('back')
-    var song=new Audio('asset/birthday.mp3')
+    // var song=new Audio('asset/birthday.mp3')
 
     var isClick=false
     var played=false
@@ -33,11 +33,11 @@ window.onload=function()
 		{	
             if(isClick==false)
             {
-                if(this.index+1==front.length&&played==false)
-                {
-                    playSong()
-                    played=true
-                }
+                // if(this.index+1==front.length&&played==false)
+                // {
+                //     playSong()
+                //     played=true
+                // }
 
                 flip_page(this.index,'next')
                 
@@ -55,11 +55,11 @@ window.onload=function()
         {
             if(isClick==false)
             {
-                if(this.index+1==front.length&&played==true)
-                {
-                    pauseSong()
-                    played=false
-                }
+                // if(this.index+1==front.length&&played==true)
+                // {
+                //     pauseSong()
+                //     played=false
+                // }
 
                 flip_page(this.index,'pre')
 
@@ -90,12 +90,12 @@ window.onload=function()
         setTimeout(function(){isClick=false},2000);
     }
 
-    function playSong()
-    {
-        setTimeout(function(){song.play()},2000);
-    }
-    function pauseSong()
-    {
-        setTimeout(function(){song.pause();song.currentTime=0},1500);
-    }
+    // function playSong()
+    // {
+    //     setTimeout(function(){song.play()},2000);
+    // }
+    // function pauseSong()
+    // {
+    //     setTimeout(function(){song.pause();song.currentTime=0},1500);
+    // }
 }
