@@ -68,6 +68,6 @@ window.onload=function()
 
     function song()
     {
-        setTimeout(function(){audio.load();audio.play()},2000);
+        setTimeout(function(){audio.play()},2000);
     }
 }
