@@ -1,6 +1,6 @@
 window.onload=function()
 {
-    var box=document.getElementById('box')
+    var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
     var back=document.getElementsByClassName('back')
     var song=new Audio('asset/birthday.mp3')
@@ -14,13 +14,13 @@ window.onload=function()
     {
         if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
-            box.style.width=document.documentElement.scrollHeight*0.45-50+'px'
-            box.style.height=document.documentElement.scrollHeight*0.45-50+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
         }
         else
         {
-            box.style.width=document.documentElement.scrollHeight*0.45+'px'
-            box.style.height=document.documentElement.scrollHeight*0.45+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
         }
     }
 
