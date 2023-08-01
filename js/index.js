@@ -1,43 +1,42 @@
 window.onload=function()
 {
-    var book=document.getElementById('book')
+    var box=document.getElementById('box')
     var page=document.getElementsByClassName('page')
-    var front=document.getElementsByClassName('front')
     var back=document.getElementsByClassName('back')
-    // var song=new Audio('asset/birthday.mp3')
+    var song=new Audio('asset/birthday.mp3')
 
     var isClick=false
-    // var played=false
+    var played=false
 
     init()
 
     function init()
     {
-        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
+        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
-            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
+            box.style.width=document.body.clientHeight*0.45-50+'px'
+            box.style.height=document.body.clientHeight*0.45-50+'px'
         }
         else
         {
-            book.style.width=document.documentElement.scrollHeight*0.45+'px'
-            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
+            box.style.width=document.body.clientHeight*0.45+'px'
+            box.style.height=document.body.clientHeight*0.45+'px'
         }
     }
 
-    for(var i=0;i<front.length;i++)
+    for(var i=0;i<page.length;i++)
 	{	
-		front[i].index=i;
+		page[i].index=i;
 
-		front[i].onclick=function()
+		page[i].onclick=function()
 		{	
             if(isClick==false)
             {
-                // if(this.index+1==front.length&&played==false)
-                // {
-                //     playSong()
-                //     played=true
-                // }
+                if(played==false)
+                {
+                    playSong()
+                    played=true
+                }
 
                 flip_page(this.index,'next')
                 
@@ -55,11 +54,11 @@ window.onload=function()
         {
             if(isClick==false)
             {
-                // if(this.index+1==front.length&&played==true)
-                // {
-                //     pauseSong()
-                //     played=false
-                // }
+                if(played==true)
+                {
+                    pauseSong()
+                    played=false
+                }
 
                 flip_page(this.index,'pre')
 
@@ -75,13 +74,16 @@ window.onload=function()
         switch(state)
         {
             case 'next':
-                page[index].classList.remove('pre'+index)
-                page[index].classList.add('next'+index)
-                // setTimeout(function(){page[index].style.zIndex=10-index},1000)
+                page[index].classList.remove(String('pre'+index))
+                back[index].classList.remove(String('pre'+(index-1)))
+                page[index].classList.add(String('next'+index))
+                back[index].classList.add(String('next'+(index-1)))
                 break
             case 'pre':
-                page[index].classList.remove('next'+index)
-                page[index].classList.add('pre'+index)
+                back[index].classList.remove(String('next'+(index-1)))
+                page[index].classList.remove(String('next'+index))
+                back[index].classList.add(String('pre'+(index-1)))
+                page[index].classList.add(String('pre'+index))
                 break
         }
     }
@@ -91,12 +93,12 @@ window.onload=function()
         setTimeout(function(){isClick=false},2000);
     }
 
-    // function playSong()
-    // {
-    //     setTimeout(function(){song.play()},2000);
-    // }
-    // function pauseSong()
-    // {
-    //     setTimeout(function(){song.pause();song.currentTime=0},1500);
-    // }
+    function playSong()
+    {
+        setTimeout(function(){song.play()},2000);
+    }
+    function pauseSong()
+    {
+        setTimeout(function(){song.pause();song.currentTime=0},1500);
+    }
 }
