@@ -3,7 +3,7 @@ window.onload=function()
     var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
     var back=document.getElementsByClassName('back')
-    var song=new Audio('asset/birthday.mp3')
+    var audio=new Audio('asset/birthday.mp3')
 
     var isClick=false
     var played=false
@@ -35,13 +35,9 @@ window.onload=function()
                 if(this.index+1==page.length&&played==false)
                 {
                     playSong()
-                    played=true
                 }
 
                 flip_page(this.index,'next')
-                
-                wait()
-                isClick=true
             }
 		}
 	}
@@ -57,13 +53,9 @@ window.onload=function()
                 if(this.index+1==page.length&&played==true)
                 {
                     pauseSong()
-                    played=false
                 }
 
                 flip_page(this.index,'pre')
-
-                wait()
-                isClick=true
             }
             
         }
@@ -86,6 +78,8 @@ window.onload=function()
                 page[index].classList.add('pre'+index)
                 break
         }
+        isClick=true
+        wait()
     }
 
     function wait()
@@ -95,10 +89,10 @@ window.onload=function()
 
     function playSong()
     {
-        setTimeout(function(){song.play()},2000);
+        setTimeout(function(){audio.play();played=false},2000);
     }
     function pauseSong()
     {
-        setTimeout(function(){song.pause();song.currentTime=0},1500);
+        setTimeout(function(){audio.pause();audio.currentTime=0;played=true},1500);
     }
 }
