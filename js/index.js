@@ -2,7 +2,7 @@ window.onload=function()
 {
     var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
-    let song=document.getElementById('song')
+    var song=document.getElementById('song')
 
     var cur=page.length
     var isClick=false
