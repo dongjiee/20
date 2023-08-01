@@ -1,5 +1,6 @@
 window.onload=function()
 {
+    var book=document.getElementById('book')
     var box=document.getElementById('box')
     var page=document.getElementsByClassName('page')
     var front=document.getElementsByClassName('front')
@@ -15,13 +16,13 @@ window.onload=function()
     {
         if(document.body.clientHeight*0.45+50>document.body.clientWidth)
         {
-            box.style.width=document.body.clientHeight*0.45-50+'px'
-            box.style.height=document.body.clientHeight*0.45-50+'px'
+            book.style.width=document.body.clientHeight*0.45-50+'px'
+            book.style.height=(document.body.clientHeight*0.45-50)*2+'px'
         }
         else
         {
-            box.style.width=document.body.clientHeight*0.45+'px'
-            box.style.height=document.body.clientHeight*0.45+'px'
+            book.style.width=document.body.clientHeight*0.45+'px'
+            book.style.height=(document.body.clientHeight*0.45)*2+'px'
         }
     }
 
@@ -75,14 +76,13 @@ window.onload=function()
         switch(state)
         {
             case 'next':
-                page[index].classList.remove('pre')
-                page[index].classList.add('next')
-                setTimeout(function(){page[index].style.zIndex=10-index},1000)
+                page[index].classList.remove('pre'+index)
+                page[index].classList.add('next'+index)
+                // setTimeout(function(){page[index].style.zIndex=10-index},1000)
                 break
             case 'pre':
-                page[index].classList.remove('next')
-                page[index].classList.add('pre')
-                setTimeout(function(){page[index].style.zIndex='auto'},1000)
+                page[index].classList.remove('next'+index)
+                page[index].classList.add('pre'+index)
                 break
         }
     }
