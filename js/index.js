@@ -2,9 +2,9 @@ window.onload=function()
 {
     var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
-    var back=document.getElementsByClassName('back')
     var song=new Audio('asset/birthday.mp3')
 
+    var cur=page.length
     var isClick=false
     var played=false
 
@@ -38,55 +38,31 @@ window.onload=function()
                     played=true
                 }
 
-                flip_page(this.index,'next')
-                
+                num=this.index;
+
+                if(cur>=num+1)
+                {
+                    page[num].classList.remove('pre'+num)
+                    page[num].classList.add('next'+num)
+                    cur=num
+
+                    setTimeout(function(){page[num].src='asset/b4.png'},1000)
+                    
+                }
+                else
+                {
+                    page[num].classList.remove('next'+num)
+                    page[num].classList.add('pre'+num)
+                    cur=num+1
+                    
+                    setTimeout(function(){page[num].src='asset/'+(page.length-num)+'.png'},1000)
+                }
+
                 wait()
                 isClick=true
             }
 		}
 	}
-
-    for(var j=0;j<back.length;j++)
-    {
-        back[j].index=j;
-
-		back[j].onclick=function()
-        {
-            if(isClick==false)
-            {
-                if(played==true)
-                {
-                    pauseSong()
-                    played=false
-                }
-
-                flip_page(this.index,'pre')
-
-                wait()
-                isClick=true
-            }
-            
-        }
-    }
-
-    function flip_page(index,state)
-    {
-        switch(state)
-        {
-            case 'next':
-                page[index].classList.remove(String('pre'+index))
-                back[index].classList.remove(String('pre'+(index-1)))
-                page[index].classList.add(String('next'+index))
-                back[index].classList.add(String('next'+(index-1)))
-                break
-            case 'pre':
-                back[index].classList.remove(String('next'+(index-1)))
-                page[index].classList.remove(String('next'+index))
-                back[index].classList.add(String('pre'+(index-1)))
-                page[index].classList.add(String('pre'+index))
-                break
-        }
-    }
 
     function wait()
     {
