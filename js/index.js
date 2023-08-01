@@ -1,25 +1,26 @@
 window.onload=function()
 {
-    var box=document.getElementById('box')
+    var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
     var back=document.getElementsByClassName('back')
-    var audio=new Audio('asset/birthday.mp3')
+    var song=new Audio('asset/birthday.mp3')
 
-    var cur=page.length
-    var click=false
-    var s=false
+    var isClick=false
+    var played=false
 
     init()
 
     function init()
     {
-        if(document.body.clientHeight*0.45+50>document.body.clientWidth)
+        if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
-            box.style.width=document.body.clientHeight*0.45-50+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
         }
         else
         {
-            box.style.width=document.body.clientHeight*0.45+'px'
+            book.style.width=document.documentElement.scrollHeight*0.45+'px'
+            book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
         }
     }
 
@@ -29,66 +30,75 @@ window.onload=function()
 
 		page[i].onclick=function()
 		{	
-            if(click==false)
+            if(isClick==false)
             {
-                num=this.index;
+                if(this.index+1==page.length&&played==false)
+                {
+                    playSong()
+                    played=true
+                }
+
+                flip_page(this.index,'next')
                 
-                if(cur>=num+1)
-                {
-                    flip_page(num,'next')
-                    // back_page(num)
-
-                    cur=num
-
-                    setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
-                    
-                    if(s==false)
-                    {
-                        song()
-                        s=true
-                    }
-                }
-                else
-                {
-                    flip_page(num,'pre')
-
-                    cur=num+1
-                    
-                    setTimeout(function(){page[num].style.zIndex=num+1},1000);
-                }
-
-                clear()
-                click=true
+                wait()
+                isClick=true
             }
 		}
 	}
 
-    function flip_page(num,state)
+    for(var j=0;j<back.length;j++)
+    {
+        back[j].index=j;
+
+		back[j].onclick=function()
+        {
+            if(isClick==false)
+            {
+                if(this.index+1==page.length&&played==true)
+                {
+                    pauseSong()
+                    played=false
+                }
+
+                flip_page(this.index,'pre')
+
+                wait()
+                isClick=true
+            }
+            
+        }
+    }
+
+    function flip_page(index,state)
     {
         switch(state)
         {
             case 'next':
-                page[num].classList.remove('pre')
-                page[num].classList.add('next')
-                back[num].classList.remove('pre')
-                back[num].classList.add('next')
-            break
+                page[index].classList.remove('pre'+index)
+                back[index].classList.remove('pre'+(index-1))
+                page[index].classList.add('next'+index)
+                back[index].classList.add('next'+(index-1))
+                break
             case 'pre':
-                page[num].classList.remove('next')
-                page[num].classList.add('pre')
-                back[num].classList.remove('next')
-                back[num].classList.add('pre')
-            break
+                back[index].classList.remove('next'+(index-1))
+                page[index].classList.remove('next'+index)
+                back[index].classList.add('pre'+(index-1))
+                page[index].classList.add('pre'+index)
+                break
         }
     }
 
-    function clear()
+    function wait()
     {
-        setTimeout(function(){click=false},2000);
+        setTimeout(function(){isClick=false},2000);
     }
 
-    function song()
+    function playSong()
     {
-        setTimeout(function(){audio.play()},800);
+        setTimeout(function(){song.play()},2000);
+    }
+    function pauseSong()
+    {
+        setTimeout(function(){song.pause();song.currentTime=0},1500);
     }
 }
