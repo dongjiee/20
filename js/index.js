@@ -31,7 +31,8 @@ for(var i=0;i<page.length;i++)
         {
             if(this.index+1==page.length&&isPlay==false)
             {
-                playSong()
+                song.load()
+                setTimeout(function(){song.play();isPlay=false},2000);
             }
 
             flip_page(this.index,'next')
@@ -52,7 +53,7 @@ for(var j=0;j<back.length;j++)
         {
             if(this.index+1==page.length&&isPlay==true)
             {
-                pauseSong()
+                setTimeout(function(){song.pause();song.currentTime=0;isPlay=true},1500);
             }
 
             flip_page(this.index,'pre')
@@ -86,13 +87,4 @@ function flip_page(index,state)
 function wait()
 {
     setTimeout(function(){isClick=false},2000);
-}
-
-function playSong()
-{
-    setTimeout(function(){song.load();song.play();isPlay=false},2000);
-}
-function pauseSong()
-{
-    setTimeout(function(){song.pause();song.currentTime=0;isPlay=true},1500);
 }
