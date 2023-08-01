@@ -8,15 +8,17 @@ var isPlay=false
 
 function init()
 {
-    if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
+    let h=document.documentElement.scrollHeight
+    let w=document.documentElement.scrollWidth
+    if(h*0.45+50>w)
     {
-        book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
-        book.style.height=(document.documentElement.scrollHeight*0.45-50)*2+'px'
+        book.style.width=h*0.45-50+'px'
+        book.style.height=(h*0.45-50)*2+'px'
     }
     else
     {
-        book.style.width=document.documentElement.scrollHeight*0.45+'px'
-        book.style.height=(document.documentElement.scrollHeight*0.45)*2+'px'
+        book.style.width=h*0.45+'px'
+        book.style.height=(h*0.45)*2+'px'
     }
 }
 init()
