@@ -1,7 +1,8 @@
 window.onload=function()
 {
-    var page=document.getElementsByClassName('page')
     var box=document.getElementById('box')
+    var page=document.getElementsByClassName('page')
+    var back=document.getElementsByClassName('back')
     var audio=new Audio('asset/birthday.mp3')
 
     var cur=page.length
@@ -31,11 +32,12 @@ window.onload=function()
             if(click==false)
             {
                 num=this.index;
-
+                
                 if(cur>=num+1)
                 {
-                    page[num].classList.remove('pre')
-                    page[num].classList.add('next')
+                    flip_page(num,'next')
+                    // back_page(num)
+
                     cur=num
 
                     setTimeout(function(){page[num].style.zIndex=-(num+1)},1000);
@@ -48,8 +50,8 @@ window.onload=function()
                 }
                 else
                 {
-                    page[num].classList.remove('next')
-                    page[num].classList.add('pre')
+                    flip_page(num,'pre')
+
                     cur=num+1
                     
                     setTimeout(function(){page[num].style.zIndex=num+1},1000);
@@ -60,6 +62,25 @@ window.onload=function()
             }
 		}
 	}
+
+    function flip_page(num,state)
+    {
+        switch(state)
+        {
+            case 'next':
+                page[num].classList.remove('pre')
+                page[num].classList.add('next')
+                back[num].classList.remove('pre')
+                back[num].classList.add('next')
+            break
+            case 'pre':
+                page[num].classList.remove('next')
+                page[num].classList.add('pre')
+                back[num].classList.remove('next')
+                back[num].classList.add('pre')
+            break
+        }
+    }
 
     function clear()
     {

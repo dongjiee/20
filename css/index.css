@@ -49,6 +49,10 @@ img
     width: 100%;
 }
 
+.back
+{
+    position: absolute;
+}
 .next
 {
     transform-origin: top center;
