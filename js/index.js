@@ -12,7 +12,6 @@ window.onload=function()
 
     function init()
     {
-        song.load()
         if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
             book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
@@ -74,7 +73,7 @@ window.onload=function()
 
     function playSong()
     {
-        setTimeout(function(){song.play();played=true},2000);
+        setTimeout(function(){song.load();song.play();played=true},2000);
     }
     function pauseSong()
     {
