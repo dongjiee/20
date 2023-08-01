@@ -2,7 +2,7 @@ window.onload=function()
 {
     var book=document.getElementById('book')
     var page=document.getElementsByClassName('page')
-    var song=new Audio('asset/birthday.mp3')
+    let song=document.getElementById('song')
 
     var cur=page.length
     var isClick=false
@@ -12,6 +12,7 @@ window.onload=function()
 
     function init()
     {
+        song.load()
         if(document.documentElement.scrollHeight*0.45+50>document.documentElement.scrollWidth)
         {
             book.style.width=document.documentElement.scrollHeight*0.45-50+'px'
@@ -32,13 +33,16 @@ window.onload=function()
 		{	
             if(isClick==false)
             {
-                if(played==false)
+                num=this.index;
+
+                if(num+1==page.length&&played==false)
                 {
                     playSong()
-                    played=true
                 }
-
-                num=this.index;
+                if(num+1==page.length&&played==true)
+                {
+                    pauseSong()
+                }
 
                 if(cur>=num+1)
                 {
@@ -47,7 +51,6 @@ window.onload=function()
                     page[num].classList.add('next'+num)
 
                     cur=num
-                    
                 }
                 else
                 {
@@ -71,10 +74,10 @@ window.onload=function()
 
     function playSong()
     {
-        setTimeout(function(){song.play()},2000);
+        setTimeout(function(){song.play();played=true},2000);
     }
     function pauseSong()
     {
-        setTimeout(function(){song.pause();song.currentTime=0},1500);
+        setTimeout(function(){song.pause();song.currentTime=0;played=false},1500);
     }
 }
