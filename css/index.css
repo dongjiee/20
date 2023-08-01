@@ -87,7 +87,7 @@ img
 {
     from
     {
-        transform: rotateX(4deg);
+        transform: rotateX(3deg);
     }
     to
     {
@@ -98,7 +98,7 @@ img
 {
     from
     {
-        transform: rotateX(3deg);
+        transform: rotateX(2deg);
     }
     to
     {
@@ -109,7 +109,7 @@ img
 {
     from
     {
-        transform: rotateX(2deg);
+        transform: rotateX(1deg);
     }
     to
     {
@@ -120,7 +120,7 @@ img
 {
     from
     {
-        transform: rotateX(1deg);
+        transform: rotateX(0);
     }
     to
     {
