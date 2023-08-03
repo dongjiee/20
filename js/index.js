@@ -92,4 +92,4 @@ var loop=function()
     setTimeout(loop,200)
 }
 loop()
-song.addEventListener('timeupdate',function(){if(Date.now()-lastSeen>100){song.pause()}},false)
+song.addEventListener('timeupdate',function(){if(Date.now()-lastSeen>200){song.pause()}},false)
