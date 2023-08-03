@@ -7,6 +7,7 @@ var isClick=false
 var isPlay=false
 
 init()
+window.onresize=function(){init()}
 
 function init()
 {
@@ -35,7 +36,7 @@ for(var i=0;i<page.length;i++)
             if(this.index+1==page.length&&isPlay==false)
             {   
                 song.load()
-                setTimeout(function(){;song.play();isPlay=true},2000);
+                setTimeout(function(){song.play();isPlay=true},2000);
             }
 
             flip_page(this.index,'next')
