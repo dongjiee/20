@@ -8,6 +8,8 @@ var isPlay=false
 
 function init()
 {
+    song.load()
+    
     let h=document.documentElement.scrollHeight
     let w=document.documentElement.scrollWidth
     if(h*0.45+50>w)
@@ -33,7 +35,6 @@ for(var i=0;i<page.length;i++)
         {
             if(this.index+1==page.length&&isPlay==false)
             {
-                song.load()
                 setTimeout(function(){song.play();isPlay=true},2000);
             }
 
