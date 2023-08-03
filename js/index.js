@@ -6,10 +6,10 @@ var song=document.getElementById('song')
 var isClick=false
 var isPlay=false
 
+init()
+
 function init()
 {
-    song.load()
-    
     let h=document.documentElement.scrollHeight
     let w=document.documentElement.scrollWidth
     if(h*0.45+50>w)
@@ -23,7 +23,6 @@ function init()
         book.style.height=(h*0.45)*2+'px'
     }
 }
-init()
 
 for(var i=0;i<page.length;i++)
 {	
@@ -34,8 +33,9 @@ for(var i=0;i<page.length;i++)
         if(isClick==false)
         {
             if(this.index+1==page.length&&isPlay==false)
-            {
-                setTimeout(function(){song.play();isPlay=true},2000);
+            {   
+                song.load()
+                setTimeout(function(){;song.play();isPlay=true},2000);
             }
 
             flip_page(this.index,'next')
