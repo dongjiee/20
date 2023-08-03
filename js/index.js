@@ -84,12 +84,3 @@ function flip_page(index,state)
     setTimeout(function(){isClick=false},2000);
     isClick=true
 }
-
-var lastSeen
-var loop=function()
-{
-    lastSeen=Date.now()
-    setTimeout(loop,200)
-}
-loop()
-song.addEventListener('timeupdate',function(){if(Date.now()-lastSeen>200){song.pause()}},false)
