@@ -40,67 +40,58 @@ img
     box-shadow: 0px 2px 8px 0px rgba(99, 99, 99, 0.2);
 }
 
-.next4
+.next3
 {
     animation: flip-to-top1 2s ease-in-out;
     animation-fill-mode:forwards;
 }
-.next3
+.next2
 {
     animation: flip-to-top2 2s ease-in-out;
     animation-fill-mode:forwards;
 }
-.next2
+.next1
 {
     animation: flip-to-top3 2s ease-in-out;
     animation-fill-mode:forwards;
 }
-.next1
+.next0
 {
     animation: flip-to-top4 2s ease-in-out;
     animation-fill-mode:forwards;
 }
-.next0
+.next-1
 {
     animation: flip-to-top5 2s ease-in-out;
     animation-fill-mode:forwards;
 }
-.next-1
-{
-    animation: flip-to-top6 2s ease-in-out;
-    animation-fill-mode:forwards;
-}
 
-.pre4
+.pre3
 {
     animation: flip-to-bottom1 2s ease-in-out;
 }
-.pre3
+.pre2
 {
     animation: flip-to-bottom2 2s ease-in-out;
 }
-.pre2
+.pre1
 {
     animation: flip-to-bottom3 2s ease-in-out;
 }
-.pre1
+.pre0
 {
     animation: flip-to-bottom4 2s ease-in-out;
 }
-.pre0
-{
-    animation: flip-to-bottom5 2s ease-in-out;
-}
 .pre-1
 {
-    animation: flip-to-bottom6 2s ease-in-out;
+    animation: flip-to-bottom5 2s ease-in-out;
 }
 
 @keyframes flip-to-top1
 {
     from
     {
-        transform: rotateX(5deg);
+        transform: rotateX(4deg);
     }
     to
     {
@@ -111,7 +102,7 @@ img
 {
     from
     {
-        transform: rotateX(4deg);
+        transform: rotateX(3deg);
     }
     to
     {
@@ -122,7 +113,7 @@ img
 {
     from
     {
-        transform: rotateX(3deg);
+        transform: rotateX(2deg);
     }
     to
     {
@@ -133,7 +124,7 @@ img
 {
     from
     {
-        transform: rotateX(2deg);
+        transform: rotateX(1deg);
     }
     to
     {
@@ -144,22 +135,11 @@ img
 {
     from
     {
-        transform: rotateX(1deg);
-    }
-    to
-    {
-        transform: rotateX(176deg);
-    }
-}
-@keyframes flip-to-top6
-{
-    from
-    {
         transform: rotateX(0);
     }
     to
     {
-        transform: rotateX(175deg);
+        transform: rotateX(176deg);
     }
 }
 
@@ -171,7 +151,7 @@ img
     }
     to
     {
-        transform: rotateX(5deg);
+        transform: rotateX(4deg);
     }
 }
 @keyframes flip-to-bottom2
@@ -182,7 +162,7 @@ img
     }
     to
     {
-        transform: rotateX(4deg);
+        transform: rotateX(3deg);
     }
 }
 @keyframes flip-to-bottom3
@@ -193,7 +173,7 @@ img
     }
     to
     {
-        transform: rotateX(3deg);
+        transform: rotateX(2deg);
     }
 }
 @keyframes flip-to-bottom4
@@ -204,7 +184,7 @@ img
     }
     to
     {
-        transform: rotateX(2deg);
+        transform: rotateX(1deg);
     }
 }
 @keyframes flip-to-bottom5
@@ -212,17 +192,6 @@ img
     from
     {
         transform: rotateX(176deg);
-    }
-    to
-    {
-        transform: rotateX(1deg);
-    }
-}
-@keyframes flip-to-bottom6
-{
-    from
-    {
-        transform: rotateX(175deg);
     }
     to
     {
