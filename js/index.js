@@ -4,7 +4,7 @@ var back=document.getElementsByClassName('back')
 var song=document.getElementById('song')
 
 var isClick=false
-var isPlay=false
+var isLoad=false
 
 init()
 window.onresize=function(){init()}
@@ -33,12 +33,15 @@ for(var i=0;i<page.length;i++)
     {	
         if(isClick==false)
         {
-            if(this.index+1==page.length&&isPlay==false)
+            if(this.index+1==page.length)
             {   
-                song.load()
-                setTimeout(function(){song.play();isPlay=true},2000)
+                if(isLoad==false)
+                {
+                    song.load()
+                    isLoad=true
+                }
+                setTimeout(function(){song.play()},2000)
             }
-
             flip_page(this.index,'next')
         }
     }
@@ -52,9 +55,9 @@ for(var j=0;j<back.length;j++)
     {
         if(isClick==false)
         {
-            if(this.index+1==page.length&&isPlay==true)
+            if(this.index+1==page.length&&song.paused==false)
             {
-                setTimeout(function(){song.pause();song.currentTime=0;isPlay=false},1500)
+                setTimeout(function(){song.pause();song.currentTime=0},1500)
             }
 
             flip_page(this.index,'pre')
