@@ -25,65 +25,66 @@ function init()
     }
 }
 
-for(var i=0;i<page.length;i++)
+page[page.length-1].onclick=function()
+{
+    if(isLoad==false)
+    {
+        song.load()
+        isLoad=true
+    }
+    setTimeout(function(){song.play()},2000)
+    flip_page(page.length-1,'next')
+}
+
+back[page.length-1].onclick=function()
+{
+    if(song.paused==false)
+    {
+        setTimeout(function(){song.pause();song.currentTime=0},1500)
+    }
+    flip_page(page.length-1,'pre')
+}
+
+for(var i=0;i<page.length-1;i++)
 {	
     page[i].index=i;
 
     page[i].onclick=function()
     {	
-        if(isClick==false)
-        {
-            if(this.index+1==page.length)
-            {   
-                if(isLoad==false)
-                {
-                    song.load()
-                    isLoad=true
-                }
-                setTimeout(function(){song.play()},2000)
-            }
-            flip_page(this.index,'next')
-        }
+        flip_page(this.index,'next')
     }
 }
 
-for(var j=0;j<back.length;j++)
+for(var j=0;j<back.length-1;j++)
 {
     back[j].index=j;
 
     back[j].onclick=function()
     {
-        if(isClick==false)
-        {
-            if(this.index+1==page.length&&song.paused==false)
-            {
-                setTimeout(function(){song.pause();song.currentTime=0},1500)
-            }
-
-            flip_page(this.index,'pre')
-        }
-        
+        flip_page(this.index,'pre')
     }
 }
 
 function flip_page(index,state)
 {
-    switch(state)
+    if(isClick==false)
     {
-        case 'next':
-            page[index].classList.remove('pre'+index)
-            back[index].classList.remove('pre'+(index-1))
-            page[index].classList.add('next'+index)
-            back[index].classList.add('next'+(index-1))
-            break
-        case 'pre':
-            back[index].classList.remove('next'+(index-1))
-            page[index].classList.remove('next'+index)
-            back[index].classList.add('pre'+(index-1))
-            page[index].classList.add('pre'+index)
-            break
+        switch(state)
+        {
+            case 'next':
+                page[index].classList.remove('pre'+index)
+                back[index].classList.remove('pre'+(index-1))
+                page[index].classList.add('next'+index)
+                back[index].classList.add('next'+(index-1))
+                break
+            case 'pre':
+                back[index].classList.remove('next'+(index-1))
+                page[index].classList.remove('next'+index)
+                back[index].classList.add('pre'+(index-1))
+                page[index].classList.add('pre'+index)
+                break
+        }
+        setTimeout(function(){isClick=false},2000);
+        isClick=true
     }
-    
-    setTimeout(function(){isClick=false},2000);
-    isClick=true
 }
