@@ -44,7 +44,7 @@ back[page.length-1].onclick=function()
 {
     if(isClick==false&&song.paused==false)
     {
-        setTimeout(function(){song.pause();song.currentTime=0},1900)
+        setTimeout(function(){song.pause();song.currentTime=0},1500)
     }
     flip_page(page.length-1,'pre')
 }
