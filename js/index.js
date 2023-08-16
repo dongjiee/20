@@ -3,12 +3,12 @@ var page=document.getElementsByClassName('page')
 var back=document.getElementsByClassName('back')
 var song=document.getElementById('song')
 
+var t1=setInterval(function(){show()},500)
 var isClick=false
 var isLoad=false
 
 init()
 window.onresize=function(){init()}
-page[page.length-1].addEventListener('load',function(){book.style.visibility='visible'})
 
 function init()
 {
@@ -23,6 +23,15 @@ function init()
     {
         book.style.width=h*0.45+'px'
         book.style.height=(h*0.45)*2+'px'
+    }
+}
+
+function show()
+{
+    if(page[page.length-1].complete)
+    {
+        book.style.visibility='visible'
+        clearInterval(t1)
     }
 }
 
