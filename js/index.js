@@ -8,6 +8,7 @@ var isLoad=false
 
 init()
 window.onresize=function(){init()}
+page[page.length-1].addEventListener('load',function(){book.style.visibility='visible'})
 
 function init()
 {
