@@ -28,20 +28,23 @@ function init()
 
 page[page.length-1].onclick=function()
 {
-    if(isLoad==false)
+    if(isClick==false)
     {
-        song.load()
-        isLoad=true
+        if(isLoad==false)
+        {
+            song.load()
+            isLoad=true
+        }
+        setTimeout(function(){song.play()},2000)
+        flip_page(page.length-1,'next')
     }
-    setTimeout(function(){song.play()},2000)
-    flip_page(page.length-1,'next')
 }
 
 back[page.length-1].onclick=function()
 {
-    if(song.paused==false)
+    if(isClick==false&&song.paused==false)
     {
-        setTimeout(function(){song.pause();song.currentTime=0},1500)
+        setTimeout(function(){song.pause();song.currentTime=0},1900)
     }
     flip_page(page.length-1,'pre')
 }
