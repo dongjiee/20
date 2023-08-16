@@ -21,7 +21,7 @@ body
 #book
 {
     position: relative;
-    display: none;
+    display: flex;
     align-items: end;
     perspective: 2000px;
     transform-style: preserve-3d;
