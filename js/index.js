@@ -3,7 +3,6 @@ var page=document.getElementsByClassName('page')
 var back=document.getElementsByClassName('back')
 var song=document.getElementById('song')
 
-var t1=setInterval(function(){show()},500)
 var isClick=false
 var isLoad=false
 
@@ -26,32 +25,20 @@ function init()
     }
 }
 
-function show()
-{
-    if(page[page.length-1].complete)
-    {
-        book.style.visibility='visible'
-        clearInterval(t1)
-    }
-}
-
 page[page.length-1].onclick=function()
 {
-    if(isClick==false)
+    if(isLoad==false)
     {
-        if(isLoad==false)
-        {
-            song.load()
-            isLoad=true
-        }
-        setTimeout(function(){song.play()},2000)
-        flip_page(page.length-1,'next')
+        song.load()
+        isLoad=true
     }
+    setTimeout(function(){song.play()},2000)
+    flip_page(page.length-1,'next')
 }
 
 back[page.length-1].onclick=function()
 {
-    if(isClick==false&&song.paused==false)
+    if(song.paused==false)
     {
         setTimeout(function(){song.pause();song.currentTime=0},1500)
     }
