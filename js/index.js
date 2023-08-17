@@ -7,7 +7,7 @@ var isClick=false
 var isLoad=false
 
 init()
-window.onresize=function(){init()}
+// window.onresize=function(){init()}
 
 function init()
 {
