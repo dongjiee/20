@@ -29,9 +29,6 @@ img
     position: absolute;
     width: 100%;
     transform-origin: top;
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 
 .b1,
