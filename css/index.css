@@ -20,6 +20,8 @@ body
 
 #book
 {
+    width:calc(100vh * 0.45 - 50px);
+    height:calc((100vh * 0.45 - 50px) * 2);
     position: relative;
     display: flex;
     align-items: end;

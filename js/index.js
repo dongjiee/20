@@ -6,24 +6,22 @@ var song=document.getElementById('song')
 var isClick=false
 var isLoad=false
 
-init()
+// init()
 // window.onresize=function(){init()}
 
-function init()
-{
-    let h=document.documentElement.scrollHeight
-    let w=document.documentElement.scrollWidth
-    if(h*0.45+50>w)
-    {
-        book.style.width=h*0.45-50+'px'
-        book.style.height=(h*0.45-50)*2+'px'
-    }
-    else
-    {
-        book.style.width=h*0.45+'px'
-        book.style.height=(h*0.45)*2+'px'
-    }
-}
+// function init()
+// {
+//     var h=document.documentElement.scrollHeight
+//     var w=document.documentElement.scrollWidth
+//     if(h*0.45+50>w)
+//     {
+//         book.setAttribute('style','width:'+Math.round(h*0.45-50)+'px;height:'+Math.round((h*0.45-50)*2)+'px')
+//     }
+//     else
+//     {
+//         book.setAttribute('style','width:'+Math.round(h*0.45)+'px;height:'+Math.round((h*0.45)*2)+'px')
+//     }
+// }
 
 page[page.length-1].onclick=function()
 {
