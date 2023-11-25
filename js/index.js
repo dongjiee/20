@@ -13,7 +13,7 @@ page[page.length-1].onclick=function()
         song.load()
         isLoad=true
     }
-    setTimeout(function(){song.play()},2000)
+    setTimeout(function(){song.play()},1000)
     flip_page(page.length-1,'next')
 }
 
