@@ -148,7 +148,7 @@ img
         transform: rotateX(176deg);
     }
 }
-@keyframes flip-to-top5
+@keyframes flip-to-top6
 {
     from
     {
@@ -215,7 +215,7 @@ img
         transform: rotateX(1deg);
     }
 }
-@keyframes flip-to-bottom5
+@keyframes flip-to-bottom6
 {
     from
     {
